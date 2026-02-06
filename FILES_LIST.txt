@@ -1,0 +1,82 @@
+СПИСОК ВСЕХ ФАЙЛОВ ПРОЕКТА ACADEM
+=====================================
+
+Для загрузки на сервер используйте все файлы из этой папки.
+
+ОСНОВНЫЕ ФАЙЛЫ:
+----------------
+✓ index.html          - Главная страница поиска отелей
+✓ search.html         - Страница результатов поиска
+✓ styles.css          - Все стили проекта
+✓ README.md           - Инструкция по развертыванию
+
+РЕСУРСЫ (assets/):
+------------------
+✓ assets/logo.svg     - Логотип сайта
+✓ assets/map.png      - Изображение карты
+
+Изображения отелей:
+✓ assets/3b939fb98fb21343225242bfa061f323ed6562a6.png
+✓ assets/85e4794da66041f3fdf35ed7be085da069a9a1d9.png
+✓ assets/a48e61edb99211f4685e797be1886bbcb42b241b.png
+
+ИКОНКИ (assets/icons/):
+-----------------------
+Иконки 12px:
+  ✓ assets/icons/12/FlightNew.svg
+  ✓ assets/icons/12/Metro.svg
+  ✓ assets/icons/12/Train.svg
+
+Иконки 16px:
+  ✓ assets/icons/16/ArrowDownFill.svg
+  ✓ assets/icons/16/Discount.svg
+  ✓ assets/icons/16/FlightNew.svg
+  ✓ assets/icons/16/Info.svg
+  ✓ assets/icons/16/KebabHorizontal.svg
+  ✓ assets/icons/16/List.svg
+  ✓ assets/icons/16/Scale.svg
+  ✓ assets/icons/16/Search.svg
+  ✓ assets/icons/16/Share.svg
+
+Иконки 20px:
+  ✓ assets/icons/20/ArrowExpand.svg
+  ✓ assets/icons/20/BathNew.svg
+  ✓ assets/icons/20/DoubleBedNew.svg
+  ✓ assets/icons/20/HeartOutline.svg
+
+Иконки 24px:
+  ✓ assets/icons/24/Discount.svg
+
+ИТОГО: 25 файлов
+- 2 HTML файла
+- 1 CSS файл
+- 1 README файл
+- 4 PNG изображения
+- 1 SVG логотип
+- 16 SVG иконок
+
+АРХИВ ДЛЯ ЗАГРУЗКИ:
+-------------------
+✓ Academ-static-website.zip     - Архив в формате ZIP
+
+ИНСТРУКЦИЯ ПО РАЗВЕРТЫВАНИЮ:
+-----------------------------
+1. Запустите команду: npm run buildstatic
+2. Распакуйте архив Academ-static-website.zip
+3. Загрузите ВСЕ файлы из папки Academ/ на ваш веб-сервер
+4. Сохраните структуру папок (особенно assets/Fonts/ и assets/icons/)
+5. Откройте index.html в браузере
+
+КОМАНДА СБОРКИ:
+---------------
+npm run buildstatic
+
+Эта команда:
+- Копирует шрифты из assets/Fonts/ в Academ/assets/Fonts/
+- Создает ZIP архив Academ-static-website.zip
+- Готовит все файлы для загрузки на сервер
+
+ВАЖНО:
+- Все пути к ресурсам относительные
+- Структура папок должна быть сохранена
+- Файлы готовы к использованию без дополнительной сборки
