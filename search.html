@@ -2,6 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academ - Результаты поиска отелей</title>
     <meta name="description" content="Результаты поиска отелей. Сравните цены, отзывы и удобства. Выберите лучший вариант для вашего путешествия с фильтрами по звездности, цене и расположению.">
@@ -17,7 +20,7 @@
                     <!-- Left: Logo and Navigation -->
                     <div class="header__left">
                         <a href="index.html">
-                            <img src="assets/logo.svg" alt="Academ" class="header__logo">
+                            <div class="header__logo" style="display: none;"></div>
                         </a>
                         <nav class="nav">
                             <a href="index.html" class="nav__link nav__link--active">Поиск</a>
@@ -206,21 +209,6 @@
                         </div>
                     </div>
 
-                    <!-- Currency Switch -->
-                    <div class="filter-category">
-                        <h3 class="filter-category__title">Валюта</h3>
-                        <div class="filter-category__content">
-                            <label class="currency-toggle">
-                                <input type="checkbox" class="currency-toggle__input" id="currencyKztToggle" />
-                                <span class="currency-toggle__track" aria-hidden="true">
-                                    <span class="currency-toggle__thumb"></span>
-                                </span>
-                                <span class="currency-toggle__label">Тенге (₸)</span>
-                            </label>
-                            <p class="currency-toggle__hint">Курс приблизительный, для оценки.</p>
-                        </div>
-                    </div>
-                    
                     <!-- FiltersCategory - Radius -->
                     <div class="filter-category">
                         <h3 class="filter-category__title">Радиус поиска от центра</h3>
@@ -473,7 +461,7 @@
                                     </div>
                                     
                                     <div class="tariff-booking">
-                                        <button class="tariff-booking__button">Бронировать</button>
+                                        <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                         <div class="tariff-booking__bottom">
                                             <span class="tariff-booking__availability">В наличии: много</span>
                                             <div class="tariff-booking__actions">
@@ -523,7 +511,7 @@
                                         </div>
                                         
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 5</span>
                                                 <div class="tariff-booking__actions">
@@ -556,7 +544,7 @@
                                         </div>
                                         
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 2</span>
                                                 <div class="tariff-booking__actions">
@@ -599,7 +587,7 @@
                                         </div>
                                         
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 3</span>
                                                 <div class="tariff-booking__actions">
@@ -693,7 +681,7 @@
                                         </div>
                                     </div>
                                     <div class="tariff-booking">
-                                        <button class="tariff-booking__button">Бронировать</button>
+                                        <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                         <div class="tariff-booking__bottom">
                                             <span class="tariff-booking__availability">В наличии: много</span>
                                             <div class="tariff-booking__actions">
@@ -740,7 +728,7 @@
                                             </div>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 3</span>
                                                 <div class="tariff-booking__actions">
@@ -780,7 +768,7 @@
                                             </div>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 4</span>
                                                 <div class="tariff-booking__actions">
@@ -820,7 +808,7 @@
                                             </div>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 2</span>
                                                 <div class="tariff-booking__actions">
@@ -906,7 +894,7 @@
                                         </div>
                                     </div>
                                     <div class="tariff-booking">
-                                        <button class="tariff-booking__button">Бронировать</button>
+                                        <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                         <div class="tariff-booking__bottom">
                                             <span class="tariff-booking__availability">В наличии: 3</span>
                                             <div class="tariff-booking__actions">
@@ -953,7 +941,7 @@
                                             </div>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 2</span>
                                                 <div class="tariff-booking__actions">
@@ -993,7 +981,7 @@
                                             </div>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 5</span>
                                                 <div class="tariff-booking__actions">
@@ -1033,7 +1021,7 @@
                                             </div>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 1</span>
                                                 <div class="tariff-booking__actions">
@@ -1203,7 +1191,7 @@
                                     </div>
                                     
                                     <div class="tariff-booking">
-                                        <button class="tariff-booking__button">Бронировать</button>
+                                        <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                         <div class="tariff-booking__bottom">
                                             <span class="tariff-booking__availability">В наличии: 3</span>
                                             <div class="tariff-booking__actions">
@@ -1253,7 +1241,7 @@
                                         </div>
                                         
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 2</span>
                                                 <div class="tariff-booking__actions">
@@ -1296,7 +1284,7 @@
                                         </div>
                                         
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 4</span>
                                                 <div class="tariff-booking__actions">
@@ -1339,7 +1327,7 @@
                                         </div>
                                         
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 1</span>
                                                 <div class="tariff-booking__actions">
@@ -1430,7 +1418,7 @@
                                             </div>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 2</span>
                                                 <div class="tariff-booking__actions">
@@ -1477,7 +1465,7 @@
                                                 </div>
                                             </div>
                                             <div class="tariff-booking">
-                                                <button class="tariff-booking__button">Бронировать</button>
+                                                <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                                 <div class="tariff-booking__bottom">
                                                     <span class="tariff-booking__availability">В наличии: 3</span>
                                                     <div class="tariff-booking__actions">
@@ -1517,7 +1505,7 @@
                                                 </div>
                                             </div>
                                             <div class="tariff-booking">
-                                                <button class="tariff-booking__button">Бронировать</button>
+                                                <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                                 <div class="tariff-booking__bottom">
                                                     <span class="tariff-booking__availability">В наличии: 5</span>
                                                     <div class="tariff-booking__actions">
@@ -1597,7 +1585,7 @@
                                             </div>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 1</span>
                                                 <div class="tariff-booking__actions">
@@ -1644,7 +1632,7 @@
                                                 </div>
                                             </div>
                                             <div class="tariff-booking">
-                                                <button class="tariff-booking__button">Бронировать</button>
+                                                <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                                 <div class="tariff-booking__bottom">
                                                     <span class="tariff-booking__availability">В наличии: 4</span>
                                                     <div class="tariff-booking__actions">
@@ -1699,7 +1687,7 @@
                                             <span class="tariff-total">20&nbsp;000&nbsp;₽</span>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1742,7 +1730,7 @@
                                             <span class="tariff-total">22&nbsp;000&nbsp;₽</span>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1785,7 +1773,7 @@
                                             <span class="tariff-total">28&nbsp;000&nbsp;₽</span>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1828,7 +1816,7 @@
                                             <span class="tariff-total">25&nbsp;000&nbsp;₽</span>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1871,7 +1859,7 @@
                                             <span class="tariff-total">30&nbsp;000&nbsp;₽</span>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1914,7 +1902,7 @@
                                             <span class="tariff-total">45&nbsp;000&nbsp;₽</span>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                         </div>
                                     </div>
                                 </div>
@@ -2072,7 +2060,7 @@
                                     </div>
                                     
                                     <div class="tariff-booking">
-                                        <button class="tariff-booking__button">Бронировать</button>
+                                        <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                         <div class="tariff-booking__bottom">
                                             <span class="tariff-booking__availability">В наличии: много</span>
                                             <div class="tariff-booking__actions">
@@ -2112,7 +2100,7 @@
                                     </div>
                                     
                                     <div class="tariff-booking">
-                                        <button class="tariff-booking__button">Бронировать</button>
+                                        <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                         <div class="tariff-booking__bottom">
                                             <span class="tariff-booking__availability">В наличии: 3</span>
                                             <div class="tariff-booking__actions">
@@ -2155,7 +2143,7 @@
                                         </div>
                                         
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 2</span>
                                                 <div class="tariff-booking__actions">
@@ -2198,7 +2186,7 @@
                                         </div>
                                         
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 4</span>
                                                 <div class="tariff-booking__actions">
@@ -2289,7 +2277,7 @@
                                             </div>
                                         </div>
                                         <div class="tariff-booking">
-                                            <button class="tariff-booking__button">Бронировать</button>
+                                            <a href="booking.html" class="tariff-booking__button">Бронировать</a>
                                             <div class="tariff-booking__bottom">
                                                 <span class="tariff-booking__availability">В наличии: 2</span>
                                                 <div class="tariff-booking__actions">
@@ -2330,156 +2318,6 @@
                 });
             });
 
-            // Currency toggle (RUB <-> KZT)
-            const currencyToggle = document.getElementById('currencyKztToggle');
-            const priceUnit = document.getElementById('priceUnit');
-            const priceMinInput = document.getElementById('price-min');
-            const priceMaxInput = document.getElementById('price-max');
-
-            // Approximate rate for realistic UI demo
-            const RUB_TO_KZT_RATE = 5.0;
-
-            function toNumberFromPriceFragment(raw) {
-                // raw can contain spaces and NBSP, and comma decimal separator
-                const normalized = String(raw)
-                    .replace(/\u00A0/g, ' ')
-                    .replace(/\s/g, '')
-                    .replace(',', '.');
-                const n = Number.parseFloat(normalized);
-                return Number.isFinite(n) ? n : null;
-            }
-
-            function formatIntegerWithNbsp(n) {
-                const s = String(Math.trunc(n));
-                return s.replace(/\B(?=(\d{3})+(?!\d))/g, '\u00A0');
-            }
-
-            function formatKzt(amount) {
-                // Keep numbers "realistic": mostly rounded to 10 ₸ for larger amounts
-                const rounded = amount >= 1000 ? Math.round(amount / 10) * 10 : Math.round(amount);
-                return `${formatIntegerWithNbsp(rounded)}\u00A0₸`;
-            }
-
-            function convertRubleHtmlToKzt(html) {
-                // First normalize &nbsp; to actual space for regex matching
-                // Then convert back to &nbsp; in the result
-                let normalized = String(html).replace(/&nbsp;/g, ' ');
-                
-                // Replace all price occurrences like "4 500 ₽" or "991,80 ₽"
-                normalized = normalized.replace(
-                    /(\d[\d\s]*)([.,]\d+)?\s*₽/g,
-                    (match, intPart, fracPart) => {
-                        const n = toNumberFromPriceFragment(`${intPart}${fracPart || ''}`);
-                        if (n === null) {
-                            return match;
-                        }
-                        // formatKzt returns with \u00A0, convert to &nbsp; for HTML
-                        return formatKzt(n * RUB_TO_KZT_RATE).replace(/\u00A0/g, '&nbsp;');
-                    }
-                );
-                
-                return normalized;
-            }
-
-            // Simple and reliable: use TreeWalker to find all text nodes with ₽
-            function applyCurrency(isKzt) {
-                // Update price unit in filter
-                if (priceUnit) {
-                    priceUnit.textContent = isKzt ? '₸' : '₽';
-                }
-
-                // Convert price inputs
-                [priceMinInput, priceMaxInput].forEach((input) => {
-                    if (!input) return;
-
-                    if (!input.dataset.rubPlaceholder) {
-                        input.dataset.rubPlaceholder = input.getAttribute('placeholder') || '';
-                        input.dataset.rubStep = input.getAttribute('step') || '';
-                        input.dataset.rubValue = input.value || '';
-                    }
-
-                    if (isKzt) {
-                        const ph = Number.parseFloat(input.dataset.rubPlaceholder);
-                        const st = Number.parseFloat(input.dataset.rubStep);
-                        if (Number.isFinite(ph)) input.setAttribute('placeholder', String(Math.round(ph * RUB_TO_KZT_RATE)));
-                        if (Number.isFinite(st)) input.setAttribute('step', String(Math.round(st * RUB_TO_KZT_RATE)));
-                    } else {
-                        input.setAttribute('placeholder', input.dataset.rubPlaceholder);
-                        input.setAttribute('step', input.dataset.rubStep);
-                    }
-                });
-
-                // Find all elements that may contain prices using specific selectors
-                const selectors = [
-                    '.hotel-card__price',
-                    '.tariff-cancellation__text',
-                    '.tariff-total',
-                    '.tariff-discount',
-                    '.tariff-info',
-                    '.tariff-payment',
-                    '.tariff-rack'
-                ];
-                
-                const container = document.querySelector('.search-page');
-                if (!container) return;
-
-                let totalConverted = 0;
-                selectors.forEach(selector => {
-                    const elements = container.querySelectorAll(selector);
-                    console.log(`Selector ${selector}: found ${elements.length} elements`);
-                    elements.forEach(el => {
-                        // Save original on first encounter
-                        if (!el.dataset.rubHtml) {
-                            el.dataset.rubHtml = el.innerHTML;
-                        }
-
-                        const original = el.dataset.rubHtml;
-                        if (isKzt) {
-                            const converted = convertRubleHtmlToKzt(original);
-                            console.log(`Converting: "${original}" -> "${converted}"`);
-                            el.innerHTML = converted;
-                            totalConverted++;
-                        } else {
-                            el.innerHTML = original;
-                            totalConverted++;
-                        }
-                    });
-                });
-                console.log(`Total elements processed: ${totalConverted}`);
-            }
-
-            if (currencyToggle) {
-                console.log('Currency toggle found:', currencyToggle);
-                
-                // Use single click handler on the label container
-                const toggleLabel = currencyToggle.closest('.currency-toggle');
-                if (toggleLabel) {
-                    toggleLabel.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        currencyToggle.checked = !currencyToggle.checked;
-                        console.log('Currency toggled to:', currencyToggle.checked);
-                        applyCurrency(currencyToggle.checked);
-                    });
-                }
-
-                // Handle dynamically added elements
-                const observerRoot = document.querySelector('.search-page');
-                if (observerRoot) {
-                    let scheduled = false;
-                    const observer = new MutationObserver(() => {
-                        if (currencyToggle.checked && !scheduled) {
-                            scheduled = true;
-                            requestAnimationFrame(() => {
-                                scheduled = false;
-                                applyCurrency(true);
-                            });
-                        }
-                    });
-                    observer.observe(observerRoot, { subtree: true, childList: true });
-                }
-            }
-            
             // Show more button logic (for additional tariff rows)
             const showMoreButtons = document.querySelectorAll('.show-more-button');
             

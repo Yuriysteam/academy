@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academ - Бронирование отеля</title>
+    <meta name="description" content="Оформление бронирования отеля. Заполните данные гостей, выберите питание и дополнительные услуги.">
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div class="booking-page">
+        <!-- Header -->
+        <header class="header">
+            <!-- Top Bar -->
+            <div class="header__top">
+                <div class="header__content">
+                    <!-- Left: Logo and Navigation -->
+                    <div class="header__left">
+                        <a href="index.html">
+                            <div class="header__logo" style="display: none;"></div>
+                        </a>
+                        <nav class="nav">
+                            <a href="index.html" class="nav__link">Поиск</a>
+                            <a href="#" class="nav__link nav__link--active">Заказы</a>
+                            <a href="#" class="nav__link">Объекты</a>
+                            <a href="#" class="nav__link">Помощь</a>
+                            <a href="#" class="nav__link">Контакты</a>
+                        </nav>
+                    </div>
+                    
+                    <!-- Right: User Profile -->
+                    <div class="user-profile">
+                        <div class="user-profile__info">
+                            <div class="user-profile__text">
+                                <span class="user-profile__name">Имя Фамилия</span>
+                                <span class="user-profile__org">Название орги</span>
+                            </div>
+                            <div class="user-profile__avatar">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="#9c9ba2">
+                                    <circle cx="12" cy="8" r="4"/>
+                                    <path d="M12 14c-6 0-8 3-8 6v1h16v-1c0-3-2-6-8-6z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="booking-content">
+            <!-- Back Link -->
+            <a href="search.html" class="booking-back">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M12.5 15l-5-5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span>Поиск</span>
+            </a>
+            
+            <!-- Page Title -->
+            <h1 class="booking-title">Новый заказ — добавление услуги</h1>
+            
+            <div class="booking-layout">
+                <!-- Left Column - Main Form -->
+                <div class="booking-main">
+                    <!-- Card Container -->
+                    <div class="booking-card">
+                        <!-- Offer Container -->
+                        <div class="booking-offer">
+                            <!-- Hotel Section -->
+                            <div class="booking-hotel">
+                                <div class="booking-hotel__image">
+                                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=88&h=88&fit=crop" alt="Отель Москва Красносельская">
+                                </div>
+                                <div class="booking-hotel__info">
+                                    <div class="booking-hotel__header">
+                                        <div class="booking-hotel__title-row">
+                                            <h2 class="booking-hotel__title">Отель Москва Красносельская</h2>
+                                            <div class="booking-hotel__level">
+                                                <div class="booking-hotel__stars">
+                                                    <span class="booking-hotel__star">★</span>
+                                                    <span class="booking-hotel__star">★</span>
+                                                    <span class="booking-hotel__star">★</span>
+                                                </div>
+                                                <svg class="booking-hotel__rate-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9 0L11.0206 6.21885H17.5595L12.2694 10.0623L14.2901 16.2812L9 12.4377L3.70993 16.2812L5.73056 10.0623L0.440492 6.21885H6.97937L9 0Z" fill="#0D0D0F"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="booking-hotel__location-row">
+                                            <span class="booking-hotel__location">город Москва, ул. Верхняя Красносельская, 11А, 4</span>
+                                            <span class="booking-hotel__separator">·</span>
+                                            <span class="booking-hotel__distance">3,4 км до центра</span>
+                                        </div>
+                                        <div class="booking-hotel__dates-row">
+                                            <span>01.12.2026 чт — 02.12.2026 пт</span>
+                                            <span class="booking-hotel__separator">·</span>
+                                            <span>1 ночь</span>
+                                            <span class="booking-hotel__separator">·</span>
+                                            <span>1 взрослый</span>
+                                            <span class="booking-hotel__separator">·</span>
+                                            <span>1 ребенок (2-6 лет)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Separator -->
+                            <div class="booking-separator"></div>
+                            
+                            <!-- Room Section -->
+                            <div class="booking-room">
+                                <div class="booking-room__image">
+                                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=58&h=58&fit=crop" alt="Комната">
+                                </div>
+                                <div class="booking-room__content">
+                                    <div class="booking-room__text-block">
+                                        <div class="booking-room__title-row">
+                                            <h3 class="booking-room__title">Комфорт двухместный 1 кровать/ 2 кровати</h3>
+                                            <div class="booking-room__tag">
+                                                <div class="booking-room__tag-item">
+                                                    <img src="assets/icons/20/ArrowExpand.svg" alt="" width="20" height="20">
+                                                    <span>25 м²</span>
+                                                </div>
+                                                <div class="booking-room__tag-item">
+                                                    <img src="assets/icons/20/DoubleBedNew.svg" alt="" width="20" height="20">
+                                                    <span>Два варианта</span>
+                                                </div>
+                                                <div class="booking-room__tag-item">
+                                                    <img src="assets/icons/20/BathNew.svg" alt="" width="20" height="20">
+                                                    <span>В комнате</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="booking-room__dropdown-wrapper">
+                                        <div class="booking-room__dropdown">
+                                            <div class="booking-room__dropdown-content">
+                                                <div class="booking-room__dropdown-select">
+                                                    <span>1 номер</span>
+                                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                                        <path d="M3 4.5L6 7.5L9 4.5" stroke="#9C9BA2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="booking-room__dropdown-subtitle">
+                                                <span>В наличии: 10</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tariff Section -->
+                            <div class="booking-tariff">
+                                <div class="booking-tariff__info">
+                                    <div class="booking-tariff__row">
+                                        <div class="booking-tariff__badge">Опережающее</div>
+                                        <h4 class="booking-tariff__title">Сытный завтрак для энергичного...</h4>
+                                    </div>
+                                    <div class="booking-tariff__cancellation">
+                                        <span class="booking-tariff__cancellation-text">Отмена платно за 4 500 ₽</span>
+                                        <span class="booking-tariff__cancellation-text">с 01.12.2026 12:00 за 5 500 ₽</span>
+                                    </div>
+                                    <div class="booking-tariff__meal">Завтрак «Уникальный шведский стол без ограничений и меры»</div>
+                                </div>
+                                <div class="booking-tariff__prices">
+                                    <div class="booking-tariff__total">
+                                        <span class="booking-tariff__total-text">5 500 ₽</span>
+                                    </div>
+                                    <div class="booking-tariff__remuneration">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                            <circle cx="7" cy="7" r="6.5" stroke="#7F5FFF" stroke-width="1"/>
+                                            <path d="M7 3.5V7L9.5 9.5" stroke="#7F5FFF" stroke-width="1" stroke-linecap="round"/>
+                                        </svg>
+                                        <span>500 ₽</span>
+                                    </div>
+                                    <div class="booking-tariff__payment-nds">
+                                        <span>Rack 8 000 ₽</span>
+                                        <span>НДС 991,80 ₽</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Button -->
+                            <button class="booking-card__button">Изменить даты, гостей, тип номера</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Guests Section -->
+                    <div class="booking-section">
+                        <h3 class="booking-section__title">Гости: 1 взрослый · 1 ребенок (2-6 лет)</h3>
+                        
+                        <div class="booking-guests">
+                            <!-- Guest 1 - Adult -->
+                            <div class="booking-guest-row">
+                                <div class="booking-guest-field">
+                                    <label class="booking-field-label">Гостиодин</label>
+                                    <select class="booking-select">
+                                        <option>Гостиодин</option>
+                                    </select>
+                                </div>
+                                <div class="booking-guest-field">
+                                    <label class="booking-field-label">Константинопольский</label>
+                                    <input type="text" class="booking-input" value="Константинопольский">
+                                </div>
+                                <div class="booking-guest-field">
+                                    <label class="booking-field-label">Константин</label>
+                                    <input type="text" class="booking-input" value="Константин">
+                                </div>
+                                <div class="booking-guest-field">
+                                    <label class="booking-field-label">Сан-Томе и Принсипи</label>
+                                    <select class="booking-select booking-select--wide">
+                                        <option>Сан-Томе и Принсипи</option>
+                                        <option>Россия</option>
+                                    </select>
+                                </div>
+                                <button class="booking-guest-remove" title="Удалить">×</button>
+                            </div>
+                            
+                            <!-- Guest 2 - Child -->
+                            <div class="booking-guest-row">
+                                <div class="booking-guest-field">
+                                    <label class="booking-field-label">Ребенок</label>
+                                    <select class="booking-select">
+                                        <option>Ребенок</option>
+                                    </select>
+                                </div>
+                                <div class="booking-guest-field">
+                                    <label class="booking-field-label">Иванов</label>
+                                    <input type="text" class="booking-input" value="Иванов">
+                                </div>
+                                <div class="booking-guest-field">
+                                    <label class="booking-field-label">Иван</label>
+                                    <input type="text" class="booking-input" value="Иван">
+                                </div>
+                                <div class="booking-guest-field">
+                                    <label class="booking-field-label">Россия</label>
+                                    <select class="booking-select booking-select--wide">
+                                        <option>Россия</option>
+                                        <option>Сан-Томе и Принсипи</option>
+                                    </select>
+                                </div>
+                                <button class="booking-guest-remove" title="Удалить">×</button>
+                            </div>
+                        </div>
+                        
+                        <button class="booking-add-guest">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            Добавить гостя
+                        </button>
+                    </div>
+                    
+                    <!-- Meals Section -->
+                    <div class="booking-section booking-section--meals">
+                        <div class="booking-section__header">
+                            <h3 class="booking-section__title">Питание · 3 типа</h3>
+                            <span class="booking-section__price">50 000 000,00 ₽</span>
+                        </div>
+                        
+                        <div class="booking-meals-list">
+                            <!-- Meal Item 1 - Included -->
+                            <div class="booking-meal">
+                                <div class="booking-meal__header">
+                                    <span class="booking-meal__name">Завтрак «Шведский стол»</span>
+                                    <span class="booking-meal__qty-label">Количество</span>
+                                    <span class="booking-meal__price-label">Стоимость</span>
+                                </div>
+                                <div class="booking-meal__content">
+                                    <span class="booking-meal__type">Завтрак «Шведский стол»</span>
+                                    <span class="booking-meal__date">15.10.2020 — 16.10.2020 · 1 сутки</span>
+                                    <span class="booking-meal__qty">2</span>
+                                    <span class="booking-meal__price booking-meal__price--included">Включено в тариф</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Meal Item 2 -->
+                            <div class="booking-meal">
+                                <div class="booking-meal__header">
+                                    <span class="booking-meal__name">Обед</span>
+                                </div>
+                                <div class="booking-meal__content">
+                                    <span class="booking-meal__type">Обед</span>
+                                    <span class="booking-meal__date">15.10.2020 — 16.10.2020 · 1 сутки</span>
+                                    <span class="booking-meal__qty">1</span>
+                                    <span class="booking-meal__price">25 000 000,00 ₽</span>
+                                    <button class="booking-meal__remove" aria-label="Удалить">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Meal Item 3 -->
+                            <div class="booking-meal">
+                                <div class="booking-meal__header">
+                                    <span class="booking-meal__name">Ужин</span>
+                                </div>
+                                <div class="booking-meal__content">
+                                    <span class="booking-meal__type">Ужин</span>
+                                    <span class="booking-meal__date">15.10.2020 — 16.10.2020 · 1 сутки</span>
+                                    <span class="booking-meal__qty">1</span>
+                                    <span class="booking-meal__price">25 000 000,00 ₽</span>
+                                    <button class="booking-meal__remove" aria-label="Удалить">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="booking-add-meal">
+                            Добавить питание
+                        </button>
+                    </div>
+                    
+                    <!-- Early Check-in / Late Check-out -->
+                    <div class="booking-section booking-section--split">
+                        <div class="booking-checkin">
+                            <h4 class="booking-checkin__title">Ранний заезд</h4>
+                            <p class="booking-checkin__value">Не предоставляется</p>
+                        </div>
+                        <div class="booking-checkout">
+                            <h4 class="booking-checkout__title">Поздний выезд</h4>
+                            <select class="booking-select booking-select--full">
+                                <option>в 13:00 · 50 000 000,00 ₽</option>
+                                <option>в 14:00 · 75 000 000,00 ₽</option>
+                                <option>в 15:00 · 100 000 000,00 ₽</option>
+                            </select>
+                            <label class="booking-checkbox">
+                                <input type="checkbox">
+                                <span class="booking-checkbox__label">Строго обязателен</span>
+                                <span class="booking-checkbox__toggle"></span>
+                            </label>
+                            <p class="booking-checkout__note">Если отель не может предоставить поздний выезд, то будет забронировано размещение со стандартным временем выезда и пересчитанным счёт.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Summary -->
+                <div class="booking-sidebar">
+                    <div class="booking-summary">
+                        <!-- Prices Section -->
+                        <div class="booking-summary__prices">
+                            <div class="booking-summary__row">
+                                <span class="booking-summary__label">Проживание</span>
+                                <span class="booking-summary__value">5 500 ₽</span>
+                            </div>
+                            <div class="booking-summary__row">
+                                <span class="booking-summary__label">Питание</span>
+                                <span class="booking-summary__value">50 000 000,00 ₽</span>
+                            </div>
+                            <div class="booking-summary__row">
+                                <span class="booking-summary__label">Поздний выезд</span>
+                                <span class="booking-summary__value">50 000 000,00 ₽</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Separator -->
+                        <div class="booking-summary__separator"></div>
+                        
+                        <!-- Total Section -->
+                        <div class="booking-summary__total">
+                            <div class="booking-summary__total-price">
+                                <span class="booking-summary__total-label">Итого</span>
+                                <span class="booking-summary__total-value">5 550 ₽</span>
+                            </div>
+                            
+                            <div class="booking-summary__vat-section">
+                                <div class="booking-summary__vat-row">
+                                    <span class="booking-summary__vat">Включая НДС</span>
+                                    <span class="booking-summary__vat-value">991,80 ₽</span>
+                                </div>
+                                <div class="booking-summary__vat-row">
+                                    <span class="booking-summary__discount">@ 500 ₽</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Details -->
+                        <div class="booking-summary__details">
+                            <span class="booking-summary__label">Детализация стоимости</span>
+                            <span class="booking-summary__value">—</span>
+                        </div>
+                        
+                        <!-- Additional Section -->
+                        <div class="booking-summary__additional">
+                            <div class="booking-summary__benefit">
+                                <label class="booking-field-label">Дополнительная выгода</label>
+                                <div class="booking-benefit-input">
+                                    <input type="text" class="booking-input" placeholder="0">
+                                    <span class="booking-benefit-currency">₽</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button class="booking-submit-uikit">Отправить на бронирование</button>
+                        
+                        <!-- Cancellation Info -->
+                        <div class="booking-cancellation-info">
+                            <p>Изменение и аннуляция бесплатно до 01.12.2026 12:00 по московскому времени.</p>
+                            <p>Обратите внимание: 01.12.2026 12:00 по Московскому времени, 01.12.2026 09:00 UTC), за 1 000 000 000,00 ₽</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Sections - Outside of booking-layout -->
+            <div class="booking-bottom-sections">
+                <!-- Comments -->
+                <div class="booking-section booking-section--standalone">
+                    <h3 class="booking-section__title">Ваш комментарий</h3>
+                    <textarea class="booking-textarea" placeholder="Введите комментарий..."></textarea>
+                </div>
+                
+                <div class="booking-section booking-section--standalone">
+                    <h3 class="booking-section__title">Внутренняя информация</h3>
+                    <textarea class="booking-textarea" placeholder="Введите внутреннюю информацию..."></textarea>
+                </div>
+                
+                <!-- Additional Fields -->
+                <div class="booking-section booking-section--fields booking-section--standalone">
+                    <div class="booking-field-group">
+                        <label class="booking-field-label">Центр затрат</label>
+                        <input type="text" class="booking-input" placeholder="">
+                    </div>
+                    <div class="booking-field-group">
+                        <label class="booking-field-label">Группа расходов</label>
+                        <input type="text" class="booking-input" placeholder="">
+                    </div>
+                    <div class="booking-field-group">
+                        <label class="booking-field-label">Ref № услуги</label>
+                        <input type="text" class="booking-input" placeholder="">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

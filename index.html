@@ -2,6 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academ - Поиск отелей</title>
     <meta name="description" content="Найдите идеальный отель для вашего путешествия. Поиск отелей по всему миру с лучшими ценами, удобными фильтрами и мгновенным бронированием.">
@@ -16,7 +19,9 @@
                 <div class="header__content">
                     <!-- Left: Logo and Navigation -->
                     <div class="header__left">
-                        <img src="assets/logo.svg" alt="Academ" class="header__logo">
+                        <a href="index.html">
+                            <div class="header__logo" style="display: none;"></div>
+                        </a>
                         <nav class="nav">
                             <a href="index.html" class="nav__link nav__link--active">Поиск</a>
                             <a href="#" class="nav__link">Заказы</a>
@@ -44,10 +49,9 @@
                 </div>
             </div>
         </header>
-
-        <!-- Main Content -->
-        <main class="search-home__content">
-            <!-- Search Form (MF) -->
+        
+        <!-- Search Form (скрывается при скролле вниз, показывается при скролле вверх) -->
+        <div class="search-form-container" id="searchFormContainer">
             <div class="search-home__form">
                 <!-- MFFields -->
                 <div class="search-home__fields">
@@ -75,8 +79,8 @@
                     <div class="search-home__divider"></div>
                     
                     <!-- SearchSuggestTravellers -->
-                    <div class="search-home__field--guests">
-                        <span class="search-home__field-label">1 взрослый · 1 ребенок</span>
+                    <div class="search-home__field--guests" id="guestsField">
+                        <span class="search-home__field-label" id="guestsLabel">1 взрослый · 1 ребенок</span>
                         <svg class="search-home__field-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M10 12l-5-5h10l-5 5z"/>
                         </svg>
@@ -87,6 +91,53 @@
                 <a href="search.html" class="search-home__button">
                     <span class="search-home__button-label">Найти</span>
                 </a>
+                
+                <!-- Guests Popup -->
+                <div class="guests-popup" id="guestsPopup" style="display: none;">
+                    <div class="guests-container">
+                        <!-- Взрослые -->
+                        <div class="guests-row">
+                            <div class="guests-row__info">
+                                <span class="guests-row__title">Взрослые</span>
+                            </div>
+                            <div class="stepper" id="adultsStepperWrap">
+                                <button class="stepper__btn stepper__btn--minus" id="adultsMinus" aria-label="Уменьшить">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+                                <span class="stepper__value" id="adultsValue">1</span>
+                                <button class="stepper__btn stepper__btn--plus" id="adultsPlus" aria-label="Увеличить">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Дети -->
+                        <div id="childrenContainer">
+                            <div class="guests-row guests-row--child" data-child-index="0">
+                                <div class="guests-row__info">
+                                    <span class="guests-row__title">Ребёнок</span>
+                                    <span class="guests-row__subtitle">Возраст</span>
+                                </div>
+                                <div class="guests-row__right">
+                                    <span class="child-age-text">до 1 года</span>
+                                    <button class="guests-row__remove" data-child-index="0">×</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Добавить ребёнка -->
+                        <button class="guests-add-child" id="addChildBtn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            Добавить ребёнка
+                        </button>
+                    </div>
+                </div>
                 
                 <!-- Calendar Popup -->
                 <div class="calendar-popup" id="calendarPopup" style="display: none;">
@@ -109,57 +160,61 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Filter Chips -->
-            <div class="search-home__filters">
-                <button class="search-home__chip search-home__chip--active">С завтраком</button>
-                <button class="search-home__chip">Бесплатная отмена</button>
-                <button class="search-home__chip">Безналичный платёж</button>
-            </div>
-            
-            <!-- Mobile Filters Button -->
-            <button class="search-home__filters-mobile-btn" id="mobileFiltersBtn" style="display: none;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
-                </svg>
-                <span>Фильтры</span>
-            </button>
-            
-            <!-- Mobile Filters Popup -->
-            <div class="search-home__filters-mobile-popup" id="mobileFiltersPopup" style="display: none;">
-                <div class="search-home__filters-mobile-content">
-                    <div class="search-home__filters-mobile-header">
-                        <h3>Фильтры</h3>
-                        <button class="search-home__filters-mobile-close" id="mobileFiltersClose">×</button>
-                    </div>
-                    <div class="search-home__filters-mobile-chips">
-                        <button class="search-home__chip search-home__chip--active">С завтраком</button>
-                        <button class="search-home__chip">Бесплатная отмена</button>
-                        <button class="search-home__chip">Безналичный платёж</button>
-                    </div>
+        </div>
+        
+        <!-- Filter Chips -->
+        <div class="search-home__filters">
+            <button class="search-home__chip search-home__chip--active">С завтраком</button>
+            <button class="search-home__chip">Бесплатная отмена</button>
+            <button class="search-home__chip">Безналичный платёж</button>
+        </div>
+        
+        <!-- Mobile Filters Button -->
+        <button class="search-home__filters-mobile-btn" id="mobileFiltersBtn" style="display: none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
+            </svg>
+            <span>Фильтры</span>
+        </button>
+        
+        <!-- Mobile Filters Popup -->
+        <div class="search-home__filters-mobile-popup" id="mobileFiltersPopup" style="display: none;">
+            <div class="search-home__filters-mobile-content">
+                <div class="search-home__filters-mobile-header">
+                    <h3>Фильтры</h3>
+                    <button class="search-home__filters-mobile-close" id="mobileFiltersClose">×</button>
+                </div>
+                <div class="search-home__filters-mobile-chips">
+                    <button class="search-home__chip search-home__chip--active">С завтраком</button>
+                    <button class="search-home__chip">Бесплатная отмена</button>
+                    <button class="search-home__chip">Безналичный платёж</button>
                 </div>
             </div>
-            
-            <!-- Mobile Search Button (Collapsed Form) -->
-            <button class="search-home__mobile-btn" id="mobileSearchBtn" style="display: none;">
-                <div class="search-home__mobile-btn-content">
-                    <div class="search-home__mobile-btn-field">
-                        <span class="search-home__mobile-btn-label">Направление</span>
-                        <span class="search-home__mobile-btn-value" id="mobileDirection">Москва, Россия</span>
-                    </div>
-                    <div class="search-home__mobile-btn-field">
-                        <span class="search-home__mobile-btn-label">Даты</span>
-                        <span class="search-home__mobile-btn-value" id="mobileDates">1 дек 2026 – 1 янв 2027</span>
-                    </div>
-                    <div class="search-home__mobile-btn-field">
-                        <span class="search-home__mobile-btn-label">Гости</span>
-                        <span class="search-home__mobile-btn-value" id="mobileGuests">1 взрослый · 1 ребенок</span>
-                    </div>
+        </div>
+        
+        <!-- Mobile Search Button (Collapsed Form) -->
+        <button class="search-home__mobile-btn" id="mobileSearchBtn" style="display: none;">
+            <div class="search-home__mobile-btn-content">
+                <div class="search-home__mobile-btn-field">
+                    <span class="search-home__mobile-btn-label">Направление</span>
+                    <span class="search-home__mobile-btn-value" id="mobileDirection">Москва, Россия</span>
                 </div>
-                <svg class="search-home__mobile-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                </svg>
-            </button>
+                <div class="search-home__mobile-btn-field">
+                    <span class="search-home__mobile-btn-label">Даты</span>
+                    <span class="search-home__mobile-btn-value" id="mobileDates">1 дек 2026 – 1 янв 2027</span>
+                </div>
+                <div class="search-home__mobile-btn-field">
+                    <span class="search-home__mobile-btn-label">Гости</span>
+                    <span class="search-home__mobile-btn-value" id="mobileGuests">1 взрослый · 1 ребенок</span>
+                </div>
+            </div>
+            <svg class="search-home__mobile-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+        </button>
+
+        <!-- Main Content -->
+        <main class="search-home__content">
         </main>
         
         <!-- Recently Viewed Section -->
@@ -638,171 +693,157 @@
             }
             
             // ============================================
-            // CALENDAR LOGIC
+            // GUESTS POPUP LOGIC
             // ============================================
-            const dateField = document.getElementById('dateField');
-            const calendarPopup = document.getElementById('calendarPopup');
-            const dateLabel = document.getElementById('dateLabel');
-            const monthYear = document.getElementById('monthYear');
-            const calendarDays = document.getElementById('calendarDays');
-            const prevMonthBtn = document.getElementById('prevMonth');
-            const nextMonthBtn = document.getElementById('nextMonth');
+            const guestsField = document.getElementById('guestsField');
+            const guestsPopup = document.getElementById('guestsPopup');
+            const guestsLabel = document.getElementById('guestsLabel');
+            const adultsMinus = document.getElementById('adultsMinus');
+            const adultsPlus = document.getElementById('adultsPlus');
+            const adultsValue = document.getElementById('adultsValue');
+            const addChildBtn = document.getElementById('addChildBtn');
+            const childrenContainer = document.getElementById('childrenContainer');
             
-            if (dateField && calendarPopup && monthYear && calendarDays) {
-                let selectedStartDate = new Date(2026, 11, 1);
-                let selectedEndDate = new Date(2027, 0, 1);
-                let currentDate = new Date(selectedStartDate);
+            if (guestsField && guestsPopup) {
+                let adults = 1;
+                let children = [{ age: 0 }]; // Массив детей с возрастами
                 
-                const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 
-                               'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-                const monthsShort = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 
-                                    'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
-                
-                function formatDate(date) {
-                    return `${date.getDate()} ${monthsShort[date.getMonth()]} ${date.getFullYear()}`;
-                }
-                
-                function getDaysInMonth(date) {
-                    return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-                }
-                
-                function getFirstDayOfMonth(date) {
-                    return (new Date(date.getFullYear(), date.getMonth(), 1).getDay() + 6) % 7;
-                }
-                
-                function isSameDay(d1, d2) {
-                    return d1.getDate() === d2.getDate() && d1.getMonth() === d2.getMonth() && d1.getFullYear() === d2.getFullYear();
-                }
-                
-                function isDateInRange(date, start, end) {
-                    return date >= start && date <= end;
-                }
-                
-                function renderCalendar() {
-                    monthYear.textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
-                    calendarDays.innerHTML = '';
+                function updateGuestsLabel() {
+                    const adultsText = adults === 1 ? 'взрослый' : adults < 5 ? 'взрослых' : 'взрослых';
+                    let labelText = `${adults} ${adultsText}`;
                     
-                    const daysInMonth = getDaysInMonth(currentDate);
-                    const firstDay = getFirstDayOfMonth(currentDate);
-                    
-                    for (let i = 0; i < firstDay; i++) {
-                        const emptyDay = document.createElement('div');
-                        emptyDay.className = 'calendar-day calendar-day--empty';
-                        calendarDays.appendChild(emptyDay);
+                    if (children.length > 0) {
+                        const childrenText = children.length === 1 ? 'ребенок' : children.length < 5 ? 'ребенка' : 'детей';
+                        labelText += ` · ${children.length} ${childrenText}`;
                     }
                     
-                    for (let day = 1; day <= daysInMonth; day++) {
-                        const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
-                        const dayElement = document.createElement('div');
-                        dayElement.className = 'calendar-day';
-                        dayElement.textContent = day;
-                        
-                        if (selectedStartDate && isSameDay(date, selectedStartDate)) {
-                            dayElement.classList.add('calendar-day--start');
-                        }
-                        if (selectedEndDate && isSameDay(date, selectedEndDate)) {
-                            dayElement.classList.add('calendar-day--end');
-                        }
-                        if (selectedStartDate && selectedEndDate && 
-                            isDateInRange(date, selectedStartDate, selectedEndDate) && 
-                            !isSameDay(date, selectedStartDate) && 
-                            !isSameDay(date, selectedEndDate)) {
-                            dayElement.classList.add('calendar-day--range');
-                        }
-                        
-                        if (date < new Date(new Date().setHours(0, 0, 0, 0))) {
-                            dayElement.classList.add('calendar-day--disabled');
-                        } else {
-                            dayElement.addEventListener('click', function(e) {
-                                e.stopPropagation();
-                                selectDate(date);
-                            });
-                        }
-                        
-                        calendarDays.appendChild(dayElement);
+                    guestsLabel.textContent = labelText;
+                    
+                    // Обновить мобильную кнопку
+                    const mobileGuests = document.getElementById('mobileGuests');
+                    if (mobileGuests) {
+                        mobileGuests.textContent = labelText;
                     }
                 }
                 
-                function selectDate(date) {
-                    if (!selectedStartDate || (selectedStartDate && selectedEndDate) || date < selectedStartDate) {
-                        selectedStartDate = new Date(date);
-                        selectedEndDate = null;
-                    } else {
-                        selectedEndDate = new Date(date);
-                        updateDateLabel();
-                        setTimeout(() => { calendarPopup.style.display = 'none'; }, 300);
-                    }
-                    renderCalendar();
+                function updateAdultsStepper() {
+                    adultsValue.textContent = adults;
+                    adultsMinus.disabled = adults <= 1;
+                    adultsPlus.disabled = adults >= 10;
                 }
                 
-                function updateDateLabel() {
-                    if (selectedStartDate && selectedEndDate && dateLabel) {
-                        const nights = Math.ceil((selectedEndDate - selectedStartDate) / (1000 * 60 * 60 * 24));
-                        const nightsText = nights === 1 ? 'ночь' : nights < 5 ? 'ночи' : 'ночей';
-                        const dateSpan = dateLabel.querySelector('.search-home__field-date');
-                        const nightsSpan = dateLabel.querySelector('span[style*="color"]');
-                        if (dateSpan) {
-                            dateSpan.textContent = `${formatDate(selectedStartDate)} – ${formatDate(selectedEndDate)}`;
-                        }
-                        if (nightsSpan) {
-                            nightsSpan.textContent = `${nights} ${nightsText}`;
-                        }
-                    }
+                function getAgeText(age) {
+                    if (age === 0) return 'до 1 года';
+                    if (age === 1) return '1 год';
+                    if (age < 5) return `${age} года`;
+                    return `${age} лет`;
                 }
                 
-                // Показать/скрыть календарь
-                dateField.style.cursor = 'pointer';
-                dateField.querySelectorAll('*').forEach(el => { el.style.pointerEvents = 'none'; });
+                function renderChildren() {
+                    childrenContainer.innerHTML = '';
+                    
+                    children.forEach((child, index) => {
+                        const row = document.createElement('div');
+                        row.className = 'guests-row guests-row--child';
+                        row.dataset.childIndex = index;
+                        
+                        row.innerHTML = `
+                            <div class="guests-row__info">
+                                <span class="guests-row__title">Ребёнок</span>
+                                <span class="guests-row__subtitle">Возраст</span>
+                            </div>
+                            <div class="guests-row__right">
+                                <span class="child-age-text">${getAgeText(child.age)}</span>
+                                <button class="guests-row__remove" data-child-index="${index}">×</button>
+                            </div>
+                        `;
+                        
+                        childrenContainer.appendChild(row);
+                    });
+                    
+                    // Добавляем обработчики для удаления
+                    childrenContainer.querySelectorAll('.guests-row__remove').forEach(btn => {
+                        btn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            const idx = parseInt(this.dataset.childIndex);
+                            children.splice(idx, 1);
+                            renderChildren();
+                            updateGuestsLabel();
+                        });
+                    });
+                }
                 
-                dateField.addEventListener('click', function(e) {
+                // Stepper для взрослых
+                adultsMinus.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (adults > 1) {
+                        adults--;
+                        updateAdultsStepper();
+                        updateGuestsLabel();
+                    }
+                });
+                
+                adultsPlus.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (adults < 10) {
+                        adults++;
+                        updateAdultsStepper();
+                        updateGuestsLabel();
+                    }
+                });
+                
+                // Добавить ребёнка
+                addChildBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (children.length < 6) {
+                        children.push({ age: 0 });
+                        renderChildren();
+                        updateGuestsLabel();
+                    }
+                });
+                
+                // Показать/скрыть popup
+                guestsField.querySelectorAll('*').forEach(el => { el.style.pointerEvents = 'none'; });
+                
+                guestsField.addEventListener('click', function(e) {
                     e.stopPropagation();
                     e.stopImmediatePropagation();
-                    const isVisible = calendarPopup.style.display === 'block';
+                    
+                    // Закрыть календарь если открыт
+                    if (calendarPopup) calendarPopup.style.display = 'none';
+                    
+                    const isVisible = guestsPopup.style.display === 'block';
                     if (isVisible) {
-                        calendarPopup.style.display = 'none';
+                        guestsPopup.style.display = 'none';
                     } else {
-                        const rect = dateField.getBoundingClientRect();
-                        const form = dateField.closest('.search-home__form');
+                        const rect = guestsField.getBoundingClientRect();
+                        const form = guestsField.closest('.search-home__form');
                         if (form) {
                             const formRect = form.getBoundingClientRect();
-                            calendarPopup.style.top = (rect.bottom - formRect.top + 8) + 'px';
-                            calendarPopup.style.left = (rect.left - formRect.left) + 'px';
-                        } else {
-                            calendarPopup.style.top = (rect.bottom + 8) + 'px';
-                            calendarPopup.style.left = rect.left + 'px';
+                            guestsPopup.style.top = (rect.bottom - formRect.top + 8) + 'px';
+                            guestsPopup.style.right = '0';
+                            guestsPopup.style.left = 'auto';
                         }
-                        calendarPopup.style.display = 'block';
-                        renderCalendar();
+                        guestsPopup.style.display = 'block';
                     }
                 }, true);
                 
                 // Скрыть при клике вне
                 setTimeout(() => {
                     document.addEventListener('click', function(e) {
-                        if (!calendarPopup.contains(e.target) && !dateField.contains(e.target)) {
-                            calendarPopup.style.display = 'none';
+                        if (guestsPopup && guestsField) {
+                            if (!guestsPopup.contains(e.target) && !guestsField.contains(e.target)) {
+                                guestsPopup.style.display = 'none';
+                            }
                         }
                     });
                 }, 200);
                 
-                // Навигация
-                if (prevMonthBtn) {
-                    prevMonthBtn.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        currentDate.setMonth(currentDate.getMonth() - 1);
-                        renderCalendar();
-                    });
-                }
-                if (nextMonthBtn) {
-                    nextMonthBtn.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        currentDate.setMonth(currentDate.getMonth() + 1);
-                        renderCalendar();
-                    });
-                }
-                
-                renderCalendar();
+                // Инициализация
+                updateAdultsStepper();
+                renderChildren();
             }
+            
         });
     </script>
 </body>
