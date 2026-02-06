@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academ - Поиск отелей</title>
+    <meta name="description" content="Найдите идеальный отель для вашего путешествия. Поиск отелей по всему миру с лучшими ценами, удобными фильтрами и мгновенным бронированием.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <div class="search-home">
+        <!-- Header (только top bar, без search-bar на главной) -->
+        <header class="header">
+            <!-- Top Bar -->
+            <div class="header__top">
+                <div class="header__content">
+                    <!-- Left: Logo and Navigation -->
+                    <div class="header__left">
+                        <img src="assets/logo.svg" alt="Academ" class="header__logo">
+                        <nav class="nav">
+                            <a href="index.html" class="nav__link nav__link--active">Поиск</a>
+                            <a href="#" class="nav__link">Заказы</a>
+                            <a href="#" class="nav__link">Объекты</a>
+                            <a href="#" class="nav__link">Помощь</a>
+                            <a href="#" class="nav__link">Контакты</a>
+                        </nav>
+                    </div>
+                    
+                    <!-- Right: User Profile -->
+                    <div class="user-profile">
+                        <div class="user-profile__info">
+                            <div class="user-profile__text">
+                                <span class="user-profile__name">Имя Фамилия</span>
+                                <span class="user-profile__org">Название орги</span>
+                            </div>
+                            <div class="user-profile__avatar">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="#9c9ba2">
+                                    <circle cx="12" cy="8" r="4"/>
+                                    <path d="M12 14c-6 0-8 3-8 6v1h16v-1c0-3-2-6-8-6z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="search-home__content">
+            <!-- Search Form (MF) -->
+            <div class="search-home__form">
+                <!-- MFFields -->
+                <div class="search-home__fields">
+                    <!-- MFHotelField -->
+                    <div class="search-home__field--hotel">
+                        <input type="text" class="search-home__input" placeholder="Город, отель или адрес" value="Москва, Россия">
+                    </div>
+                    
+                    <!-- Divider1 -->
+                    <div class="search-home__divider"></div>
+                    
+                    <!-- SearchSuggestDate -->
+                    <div class="search-home__field--date" id="dateField">
+                        <span class="search-home__field-label" id="dateLabel">
+                            <span class="search-home__field-date">1 дек 2026 – 1 янв 2027</span>
+                            <span class="search-home__field-separator">·</span>
+                            <span style="color: var(--text-secondary);">1 ночь</span>
+                        </span>
+                        <svg class="search-home__field-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Divider3 -->
+                    <div class="search-home__divider"></div>
+                    
+                    <!-- SearchSuggestTravellers -->
+                    <div class="search-home__field--guests">
+                        <span class="search-home__field-label">1 взрослый · 1 ребенок</span>
+                        <svg class="search-home__field-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 12l-5-5h10l-5 5z"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- SearchMainButton -->
+                <a href="search.html" class="search-home__button">
+                    <span class="search-home__button-label">Найти</span>
+                </a>
+                
+                <!-- Calendar Popup -->
+                <div class="calendar-popup" id="calendarPopup" style="display: none;">
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button class="calendar-nav-btn" id="prevMonth">‹</button>
+                            <div class="calendar-month-year" id="monthYear"></div>
+                            <button class="calendar-nav-btn" id="nextMonth">›</button>
+                        </div>
+                        <div class="calendar-weekdays">
+                            <div class="calendar-weekday">Пн</div>
+                            <div class="calendar-weekday">Вт</div>
+                            <div class="calendar-weekday">Ср</div>
+                            <div class="calendar-weekday">Чт</div>
+                            <div class="calendar-weekday">Пт</div>
+                            <div class="calendar-weekday">Сб</div>
+                            <div class="calendar-weekday">Вс</div>
+                        </div>
+                        <div class="calendar-days" id="calendarDays"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Filter Chips -->
+            <div class="search-home__filters">
+                <button class="search-home__chip search-home__chip--active">С завтраком</button>
+                <button class="search-home__chip">Бесплатная отмена</button>
+                <button class="search-home__chip">Безналичный платёж</button>
+            </div>
+            
+            <!-- Mobile Filters Button -->
+            <button class="search-home__filters-mobile-btn" id="mobileFiltersBtn" style="display: none;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
+                </svg>
+                <span>Фильтры</span>
+            </button>
+            
+            <!-- Mobile Filters Popup -->
+            <div class="search-home__filters-mobile-popup" id="mobileFiltersPopup" style="display: none;">
+                <div class="search-home__filters-mobile-content">
+                    <div class="search-home__filters-mobile-header">
+                        <h3>Фильтры</h3>
+                        <button class="search-home__filters-mobile-close" id="mobileFiltersClose">×</button>
+                    </div>
+                    <div class="search-home__filters-mobile-chips">
+                        <button class="search-home__chip search-home__chip--active">С завтраком</button>
+                        <button class="search-home__chip">Бесплатная отмена</button>
+                        <button class="search-home__chip">Безналичный платёж</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Search Button (Collapsed Form) -->
+            <button class="search-home__mobile-btn" id="mobileSearchBtn" style="display: none;">
+                <div class="search-home__mobile-btn-content">
+                    <div class="search-home__mobile-btn-field">
+                        <span class="search-home__mobile-btn-label">Направление</span>
+                        <span class="search-home__mobile-btn-value" id="mobileDirection">Москва, Россия</span>
+                    </div>
+                    <div class="search-home__mobile-btn-field">
+                        <span class="search-home__mobile-btn-label">Даты</span>
+                        <span class="search-home__mobile-btn-value" id="mobileDates">1 дек 2026 – 1 янв 2027</span>
+                    </div>
+                    <div class="search-home__mobile-btn-field">
+                        <span class="search-home__mobile-btn-label">Гости</span>
+                        <span class="search-home__mobile-btn-value" id="mobileGuests">1 взрослый · 1 ребенок</span>
+                    </div>
+                </div>
+                <svg class="search-home__mobile-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </button>
+        </main>
+        
+        <!-- Recently Viewed Section -->
+        <section class="recently-viewed">
+            <h2 class="recently-viewed__title">Недавно просмотренные</h2>
+            <div class="hotels-grid">
+                <!-- Hotel 1 -->
+                <article class="hotel-preview">
+                    <div class="hotel-preview__image">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=400&fit=crop" alt="Отель Националь">
+                    </div>
+                    <div class="hotel-preview__info">
+                        <h3 class="hotel-preview__name">Отель Националь</h3>
+                        <div class="hotel-preview__meta">
+                            <div class="hotel-preview__stars">
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                            </div>
+                        </div>
+                        <div class="hotel-preview__price">
+                            <span class="hotel-preview__price-value">от 15 000 ₽</span>
+                            <span class="hotel-preview__price-unit">/ ночь</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Hotel 2 -->
+                <article class="hotel-preview">
+                    <div class="hotel-preview__image">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=400&fit=crop" alt="Гостиница Метрополь">
+                    </div>
+                    <div class="hotel-preview__info">
+                        <h3 class="hotel-preview__name">Гостиница Метрополь</h3>
+                        <div class="hotel-preview__meta">
+                            <div class="hotel-preview__stars">
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                            </div>
+                        </div>
+                        <div class="hotel-preview__price">
+                            <span class="hotel-preview__price-value">от 18 500 ₽</span>
+                            <span class="hotel-preview__price-unit">/ ночь</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Hotel 3 -->
+                <article class="hotel-preview">
+                    <div class="hotel-preview__image">
+                        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&h=400&fit=crop" alt="Отель Москва Красносельская">
+                    </div>
+                    <div class="hotel-preview__info">
+                        <h3 class="hotel-preview__name">Отель Москва Красносельская</h3>
+                        <div class="hotel-preview__meta">
+                            <div class="hotel-preview__stars">
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star">★</span>
+                                <span class="hotel-preview__star">★</span>
+                            </div>
+                        </div>
+                        <div class="hotel-preview__price">
+                            <span class="hotel-preview__price-value">от 4 500 ₽</span>
+                            <span class="hotel-preview__price-unit">/ ночь</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Hotel 4 -->
+                <article class="hotel-preview">
+                    <div class="hotel-preview__image">
+                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=400&h=400&fit=crop" alt="Radisson Collection Hotel">
+                    </div>
+                    <div class="hotel-preview__info">
+                        <h3 class="hotel-preview__name">Radisson Collection Hotel</h3>
+                        <div class="hotel-preview__meta">
+                            <div class="hotel-preview__stars">
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                                <span class="hotel-preview__star hotel-preview__star--filled">★</span>
+                            </div>
+                        </div>
+                        <div class="hotel-preview__price">
+                            <span class="hotel-preview__price-value">от 22 000 ₽</span>
+                            <span class="hotel-preview__price-unit">/ ночь</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        // Chips toggle logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const chips = document.querySelectorAll('.search-home__chip');
+            
+            chips.forEach(chip => {
+                chip.addEventListener('click', function() {
+                    // Toggle active class
+                    this.classList.toggle('search-home__chip--active');
+                });
+            });
+            
+            // Calendar logic
+            const dateField = document.getElementById('dateField');
+            const calendarPopup = document.getElementById('calendarPopup');
+            const dateLabel = document.getElementById('dateLabel');
+            const monthYear = document.getElementById('monthYear');
+            const calendarDays = document.getElementById('calendarDays');
+            const prevMonthBtn = document.getElementById('prevMonth');
+            const nextMonthBtn = document.getElementById('nextMonth');
+            
+            let selectedStartDate = new Date(2026, 11, 1); // 1 дек 2026
+            let selectedEndDate = new Date(2027, 0, 1); // 1 янв 2027
+            let currentDate = new Date(selectedStartDate); // Показываем месяц с начальной датой
+            let isSelectingStart = false; // false означает что следующая дата будет конечной
+            
+            const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 
+                           'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+            const monthsShort = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 
+                                'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+            const weekdays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+            
+            function formatDate(date) {
+                const day = date.getDate();
+                const month = monthsShort[date.getMonth()];
+                const year = date.getFullYear();
+                return `${day} ${month} ${year}`;
+            }
+            
+            function getDaysInMonth(date) {
+                return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+            }
+            
+            function getFirstDayOfMonth(date) {
+                const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+                return (firstDay.getDay() + 6) % 7; // Понедельник = 0
+            }
+            
+            function isSameDay(date1, date2) {
+                return date1.getDate() === date2.getDate() &&
+                       date1.getMonth() === date2.getMonth() &&
+                       date1.getFullYear() === date2.getFullYear();
+            }
+            
+            function isDateInRange(date, start, end) {
+                return date >= start && date <= end;
+            }
+            
+            function renderCalendar() {
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth();
+                monthYear.textContent = `${months[month]} ${year}`;
+                
+                calendarDays.innerHTML = '';
+                
+                const daysInMonth = getDaysInMonth(currentDate);
+                const firstDay = getFirstDayOfMonth(currentDate);
+                
+                // Пустые ячейки до первого дня месяца
+                for (let i = 0; i < firstDay; i++) {
+                    const emptyDay = document.createElement('div');
+                    emptyDay.className = 'calendar-day calendar-day--empty';
+                    calendarDays.appendChild(emptyDay);
+                }
+                
+                // Дни месяца
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const date = new Date(year, month, day);
+                    const dayElement = document.createElement('div');
+                    dayElement.className = 'calendar-day';
+                    dayElement.textContent = day;
+                    
+                    // Выделение выбранных дат
+                    if (selectedStartDate && isSameDay(date, selectedStartDate)) {
+                        dayElement.classList.add('calendar-day--start');
+                    }
+                    if (selectedEndDate && isSameDay(date, selectedEndDate)) {
+                        dayElement.classList.add('calendar-day--end');
+                    }
+                    if (selectedStartDate && selectedEndDate && 
+                        isDateInRange(date, selectedStartDate, selectedEndDate) && 
+                        !isSameDay(date, selectedStartDate) && 
+                        !isSameDay(date, selectedEndDate)) {
+                        dayElement.classList.add('calendar-day--range');
+                    }
+                    
+                    // Прошедшие даты
+                    if (date < new Date(new Date().setHours(0, 0, 0, 0))) {
+                        dayElement.classList.add('calendar-day--disabled');
+                    } else {
+                        dayElement.addEventListener('click', () => selectDate(date));
+                    }
+                    
+                    calendarDays.appendChild(dayElement);
+                }
+            }
+            
+            function selectDate(date) {
+                if (!selectedStartDate || (selectedStartDate && selectedEndDate) || date < selectedStartDate) {
+                    // Начинаем новый выбор или перезаписываем
+                    selectedStartDate = new Date(date);
+                    selectedEndDate = null;
+                    isSelectingStart = false;
+                } else {
+                    // Завершаем выбор диапазона
+                    selectedEndDate = new Date(date);
+                    isSelectingStart = true;
+                    updateDateLabel();
+                    // Закрываем календарь через небольшую задержку для визуального подтверждения
+                    setTimeout(() => {
+                        calendarPopup.style.display = 'none';
+                    }, 300);
+                }
+                renderCalendar();
+            }
+            
+            function updateDateLabel() {
+                if (selectedStartDate && selectedEndDate) {
+                    const nights = Math.ceil((selectedEndDate - selectedStartDate) / (1000 * 60 * 60 * 24));
+                    const dateSpan = dateLabel.querySelector('.search-home__field-date');
+                    const nightsSpan = dateLabel.querySelector('span[style*="color"]');
+                    if (dateSpan) {
+                        dateSpan.textContent = `${formatDate(selectedStartDate)} – ${formatDate(selectedEndDate)}`;
+                    }
+                    if (nightsSpan) {
+                        nightsSpan.textContent = `${nights} ${nights === 1 ? 'ночь' : nights < 5 ? 'ночи' : 'ночей'}`;
+                    }
+                }
+            }
+            
+            // Показать календарь при клике на поле
+            if (dateField && calendarPopup) {
+                dateField.style.cursor = 'pointer';
+                dateField.setAttribute('tabindex', '0');
+                dateField.setAttribute('role', 'button');
+                dateField.setAttribute('aria-label', 'Выбрать даты');
+                
+                // Отключаем pointer events на дочерних элементах чтобы клики проходили на родителя
+                const dateFieldChildren = dateField.querySelectorAll('*');
+                dateFieldChildren.forEach(child => {
+                    child.style.pointerEvents = 'none';
+                });
+                
+                function showCalendar() {
+                    const rect = dateField.getBoundingClientRect();
+                    const form = dateField.closest('.search-home__form');
+                    
+                    if (form) {
+                        const formRect = form.getBoundingClientRect();
+                        calendarPopup.style.display = 'block';
+                        calendarPopup.style.top = (rect.bottom - formRect.top + 8) + 'px';
+                        calendarPopup.style.left = (rect.left - formRect.left) + 'px';
+                    } else {
+                        calendarPopup.style.display = 'block';
+                        calendarPopup.style.top = (rect.bottom + 8) + 'px';
+                        calendarPopup.style.left = rect.left + 'px';
+                    }
+                    
+                    if (monthYear && calendarDays) {
+                        renderCalendar();
+                    }
+                }
+                
+                function toggleCalendar(e) {
+                    if (e) {
+                        e.stopPropagation();
+                        e.stopImmediatePropagation();
+                    }
+                    
+                    const isVisible = calendarPopup.style.display === 'block';
+                    
+                    if (isVisible) {
+                        calendarPopup.style.display = 'none';
+                    } else {
+                        showCalendar();
+                    }
+                }
+                
+                // Используем capture phase чтобы перехватить событие раньше других обработчиков
+                dateField.addEventListener('click', toggleCalendar, true);
+                
+                dateField.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleCalendar(e);
+                    }
+                });
+            }
+            
+            // Скрыть календарь при клике вне его (с задержкой чтобы не конфликтовать с открытием)
+            if (calendarPopup && dateField) {
+                setTimeout(() => {
+                    document.addEventListener('click', function closeCalendarOnOutsideClick(e) {
+                        if (calendarPopup && dateField) {
+                            const isClickOnCalendar = calendarPopup.contains(e.target);
+                            const isClickOnDateField = dateField.contains(e.target);
+                            
+                            if (!isClickOnCalendar && !isClickOnDateField) {
+                                const isVisible = calendarPopup.style.display === 'block';
+                                if (isVisible) {
+                                    calendarPopup.style.display = 'none';
+                                }
+                            }
+                        }
+                    }, false); // Используем bubble phase чтобы сработало после capture
+                }, 200);
+            }
+            
+            // Навигация по месяцам
+            if (prevMonthBtn) {
+                prevMonthBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    currentDate.setMonth(currentDate.getMonth() - 1);
+                    renderCalendar();
+                });
+            }
+            
+            if (nextMonthBtn) {
+                nextMonthBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    currentDate.setMonth(currentDate.getMonth() + 1);
+                    renderCalendar();
+                });
+            }
+            
+            // Инициализация
+            if (monthYear && calendarDays) {
+                renderCalendar();
+            }
+            
+            // Mobile version logic
+            const mobileFiltersBtn = document.getElementById('mobileFiltersBtn');
+            const mobileFiltersPopup = document.getElementById('mobileFiltersPopup');
+            const mobileFiltersClose = document.getElementById('mobileFiltersClose');
+            const mobileSearchBtn = document.getElementById('mobileSearchBtn');
+            const searchForm = document.querySelector('.search-home__form');
+            const filters = document.querySelector('.search-home__filters');
+            
+            function checkMobile() {
+                const isMobile = window.innerWidth <= 840;
+                if (isMobile) {
+                    // Показать мобильные элементы
+                    if (mobileFiltersBtn) mobileFiltersBtn.style.display = 'flex';
+                    if (mobileSearchBtn) mobileSearchBtn.style.display = 'flex';
+                    // Скрыть десктопные элементы (если форма не открыта)
+                    if (filters) filters.style.display = 'none';
+                    if (searchForm && searchForm.style.display !== 'flex') {
+                        searchForm.style.display = 'none';
+                    }
+                } else {
+                    // Скрыть мобильные элементы
+                    if (mobileFiltersBtn) mobileFiltersBtn.style.display = 'none';
+                    if (mobileSearchBtn) mobileSearchBtn.style.display = 'none';
+                    if (mobileFiltersPopup) mobileFiltersPopup.style.display = 'none';
+                    // Показать десктопные элементы
+                    if (filters) filters.style.display = 'flex';
+                    if (searchForm) searchForm.style.display = 'flex';
+                }
+            }
+            
+            // Mobile filters toggle
+            if (mobileFiltersBtn && mobileFiltersPopup) {
+                mobileFiltersBtn.addEventListener('click', function() {
+                    mobileFiltersPopup.style.display = 'block';
+                });
+            }
+            
+            if (mobileFiltersClose && mobileFiltersPopup) {
+                mobileFiltersClose.addEventListener('click', function() {
+                    mobileFiltersPopup.style.display = 'none';
+                });
+            }
+            
+            // Mobile search button - открывает форму
+            if (mobileSearchBtn && searchForm) {
+                mobileSearchBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    searchForm.style.display = 'flex';
+                    mobileSearchBtn.style.display = 'none';
+                    // Прокрутить к форме
+                    searchForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
+            
+            // Закрыть форму при клике на кнопку "Найти" в мобильной версии
+            const searchButton = document.querySelector('.search-home__button');
+            if (searchButton && searchForm && mobileSearchBtn) {
+                searchButton.addEventListener('click', function() {
+                    if (window.innerWidth <= 840) {
+                        setTimeout(() => {
+                            searchForm.style.display = 'none';
+                            mobileSearchBtn.style.display = 'flex';
+                            updateMobileButton();
+                        }, 100);
+                    }
+                });
+            }
+            
+            // Закрыть форму при клике вне её в мобильной версии
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 840 && searchForm && mobileSearchBtn) {
+                    if (searchForm.style.display === 'flex' && 
+                        !searchForm.contains(e.target) && 
+                        !mobileSearchBtn.contains(e.target)) {
+                        searchForm.style.display = 'none';
+                        mobileSearchBtn.style.display = 'flex';
+                        updateMobileButton();
+                    }
+                }
+            });
+            
+            // Обновление значений в мобильной кнопке
+            function updateMobileButton() {
+                const directionEl = document.getElementById('mobileDirection');
+                const datesEl = document.getElementById('mobileDates');
+                const guestsEl = document.getElementById('mobileGuests');
+                
+                if (directionEl) {
+                    const hotelInput = document.querySelector('.search-home__input');
+                    if (hotelInput) {
+                        directionEl.textContent = hotelInput.value || 'Направление';
+                        // Слушать изменения в поле направления
+                        hotelInput.addEventListener('input', function() {
+                            directionEl.textContent = this.value || 'Направление';
+                        });
+                    }
+                }
+                if (datesEl && dateLabel) {
+                    const datesText = dateLabel.textContent.split(' · ')[0] || dateLabel.textContent || 'Даты';
+                    datesEl.textContent = datesText;
+                }
+                if (guestsEl) {
+                    const guestsField = document.querySelector('.search-home__field--guests .search-home__field-label');
+                    if (guestsField) {
+                        guestsEl.textContent = guestsField.textContent || 'Гости';
+                    }
+                }
+            }
+            
+            // Инициализация мобильной версии
+            checkMobile();
+            updateMobileButton();
+            window.addEventListener('resize', function() {
+                checkMobile();
+                updateMobileButton();
+            });
+            
+            // Обновлять мобильную кнопку при изменении дат
+            const originalUpdateDateLabel = updateDateLabel;
+            updateDateLabel = function() {
+                originalUpdateDateLabel();
+                if (window.innerWidth <= 840) {
+                    updateMobileButton();
+                }
+            };
+            
+            // Обновлять мобильную кнопку при изменении направления
+            const hotelInput = document.querySelector('.search-home__input');
+            if (hotelInput) {
+                hotelInput.addEventListener('input', function() {
+                    if (window.innerWidth <= 840) {
+                        updateMobileButton();
+                    }
+                });
+            }
+            
+            // ============================================
+            // CALENDAR LOGIC
+            // ============================================
+            const dateField = document.getElementById('dateField');
+            const calendarPopup = document.getElementById('calendarPopup');
+            const dateLabel = document.getElementById('dateLabel');
+            const monthYear = document.getElementById('monthYear');
+            const calendarDays = document.getElementById('calendarDays');
+            const prevMonthBtn = document.getElementById('prevMonth');
+            const nextMonthBtn = document.getElementById('nextMonth');
+            
+            if (dateField && calendarPopup && monthYear && calendarDays) {
+                let selectedStartDate = new Date(2026, 11, 1);
+                let selectedEndDate = new Date(2027, 0, 1);
+                let currentDate = new Date(selectedStartDate);
+                
+                const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 
+                               'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+                const monthsShort = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 
+                                    'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+                
+                function formatDate(date) {
+                    return `${date.getDate()} ${monthsShort[date.getMonth()]} ${date.getFullYear()}`;
+                }
+                
+                function getDaysInMonth(date) {
+                    return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+                }
+                
+                function getFirstDayOfMonth(date) {
+                    return (new Date(date.getFullYear(), date.getMonth(), 1).getDay() + 6) % 7;
+                }
+                
+                function isSameDay(d1, d2) {
+                    return d1.getDate() === d2.getDate() && d1.getMonth() === d2.getMonth() && d1.getFullYear() === d2.getFullYear();
+                }
+                
+                function isDateInRange(date, start, end) {
+                    return date >= start && date <= end;
+                }
+                
+                function renderCalendar() {
+                    monthYear.textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+                    calendarDays.innerHTML = '';
+                    
+                    const daysInMonth = getDaysInMonth(currentDate);
+                    const firstDay = getFirstDayOfMonth(currentDate);
+                    
+                    for (let i = 0; i < firstDay; i++) {
+                        const emptyDay = document.createElement('div');
+                        emptyDay.className = 'calendar-day calendar-day--empty';
+                        calendarDays.appendChild(emptyDay);
+                    }
+                    
+                    for (let day = 1; day <= daysInMonth; day++) {
+                        const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+                        const dayElement = document.createElement('div');
+                        dayElement.className = 'calendar-day';
+                        dayElement.textContent = day;
+                        
+                        if (selectedStartDate && isSameDay(date, selectedStartDate)) {
+                            dayElement.classList.add('calendar-day--start');
+                        }
+                        if (selectedEndDate && isSameDay(date, selectedEndDate)) {
+                            dayElement.classList.add('calendar-day--end');
+                        }
+                        if (selectedStartDate && selectedEndDate && 
+                            isDateInRange(date, selectedStartDate, selectedEndDate) && 
+                            !isSameDay(date, selectedStartDate) && 
+                            !isSameDay(date, selectedEndDate)) {
+                            dayElement.classList.add('calendar-day--range');
+                        }
+                        
+                        if (date < new Date(new Date().setHours(0, 0, 0, 0))) {
+                            dayElement.classList.add('calendar-day--disabled');
+                        } else {
+                            dayElement.addEventListener('click', function(e) {
+                                e.stopPropagation();
+                                selectDate(date);
+                            });
+                        }
+                        
+                        calendarDays.appendChild(dayElement);
+                    }
+                }
+                
+                function selectDate(date) {
+                    if (!selectedStartDate || (selectedStartDate && selectedEndDate) || date < selectedStartDate) {
+                        selectedStartDate = new Date(date);
+                        selectedEndDate = null;
+                    } else {
+                        selectedEndDate = new Date(date);
+                        updateDateLabel();
+                        setTimeout(() => { calendarPopup.style.display = 'none'; }, 300);
+                    }
+                    renderCalendar();
+                }
+                
+                function updateDateLabel() {
+                    if (selectedStartDate && selectedEndDate && dateLabel) {
+                        const nights = Math.ceil((selectedEndDate - selectedStartDate) / (1000 * 60 * 60 * 24));
+                        const nightsText = nights === 1 ? 'ночь' : nights < 5 ? 'ночи' : 'ночей';
+                        const dateSpan = dateLabel.querySelector('.search-home__field-date');
+                        const nightsSpan = dateLabel.querySelector('span[style*="color"]');
+                        if (dateSpan) {
+                            dateSpan.textContent = `${formatDate(selectedStartDate)} – ${formatDate(selectedEndDate)}`;
+                        }
+                        if (nightsSpan) {
+                            nightsSpan.textContent = `${nights} ${nightsText}`;
+                        }
+                    }
+                }
+                
+                // Показать/скрыть календарь
+                dateField.style.cursor = 'pointer';
+                dateField.querySelectorAll('*').forEach(el => { el.style.pointerEvents = 'none'; });
+                
+                dateField.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+                    const isVisible = calendarPopup.style.display === 'block';
+                    if (isVisible) {
+                        calendarPopup.style.display = 'none';
+                    } else {
+                        const rect = dateField.getBoundingClientRect();
+                        const form = dateField.closest('.search-home__form');
+                        if (form) {
+                            const formRect = form.getBoundingClientRect();
+                            calendarPopup.style.top = (rect.bottom - formRect.top + 8) + 'px';
+                            calendarPopup.style.left = (rect.left - formRect.left) + 'px';
+                        } else {
+                            calendarPopup.style.top = (rect.bottom + 8) + 'px';
+                            calendarPopup.style.left = rect.left + 'px';
+                        }
+                        calendarPopup.style.display = 'block';
+                        renderCalendar();
+                    }
+                }, true);
+                
+                // Скрыть при клике вне
+                setTimeout(() => {
+                    document.addEventListener('click', function(e) {
+                        if (!calendarPopup.contains(e.target) && !dateField.contains(e.target)) {
+                            calendarPopup.style.display = 'none';
+                        }
+                    });
+                }, 200);
+                
+                // Навигация
+                if (prevMonthBtn) {
+                    prevMonthBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        currentDate.setMonth(currentDate.getMonth() - 1);
+                        renderCalendar();
+                    });
+                }
+                if (nextMonthBtn) {
+                    nextMonthBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        currentDate.setMonth(currentDate.getMonth() + 1);
+                        renderCalendar();
+                    });
+                }
+                
+                renderCalendar();
+            }
+        });
+    </script>
+</body>
+</html>
